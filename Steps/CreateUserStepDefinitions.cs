@@ -24,8 +24,8 @@ namespace WiremockTestProject.Steps
             throw new PendingStepException();
         }
 
-        [Then("validate user is created")]
-        public async Task ThenValidateUserIsCreated()
+        [Then("a user is created")]
+        public async Task ThenAUserIsCreated()
         {
             throw new PendingStepException();
         }
