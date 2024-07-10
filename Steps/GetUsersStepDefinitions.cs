@@ -92,7 +92,8 @@ namespace WiremockTestProject.Steps
                       ""text"": ""To keep ReqRes free, contributions towards server costs are appreciated!""
                   }
               }";
-            Assert.AreEqual(expectedBody, response.Content);
+            //Assert.AreEqual(expectedBody, response.Content);
+            Assertions.ReferenceEquals(expectedBody,response.Content);
         }
 
         ~GetUsersStepDefinitions()
