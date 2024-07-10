@@ -3,6 +3,8 @@ using ReqresAPIClient;
 using Reqnroll;
 using RestSharp;
 using System.Threading.Tasks;
+using WireMock.Settings;
+using Microsoft.Playwright;
 
 namespace WiremockTestProject.Steps
 {
@@ -41,6 +43,8 @@ namespace WiremockTestProject.Steps
         public async Task ThenAUserIsCreated()
         {
             var content = HandleContent.GetContent<ResponseCreateUser>(response);
+            
+            //Assertions.ReferenceEquals(response, content);
             Assert.AreEqual(createUserReq.name, content.name);
             Assert.AreEqual(createUserReq.job, content.job);
         }
