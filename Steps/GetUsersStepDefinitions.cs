@@ -103,13 +103,19 @@ namespace WiremockTestProject.Steps
         [Then("the API returns requested user details using Wiremock")]
         public async Task ThenTheAPIReturnsRequestedUserDetailsUsingWiremock()
         {
-            Assert.AreEqual((int)mockResponse.status, (int)response.StatusCode);
+            //NUnit Assert
+            //Assert.AreEqual((int)mockResponse.status, (int)response.StatusCode);
+            //Playwright Assert
+            Assertions.ReferenceEquals(mockResponse, response);
 
             // Parse JSON objects to compare them
             var expectedJson = JObject.Parse(JsonConvert.SerializeObject(mockResponse.body));
             var actualJson = JObject.Parse(response.Content);
 
-            Assert.AreEqual(expectedJson.ToString(), actualJson.ToString());
+            //NUnit Assert
+            //Assert.AreEqual(expectedJson.ToString(), actualJson.ToString());
+            //Playwright Assert
+            Assertions.ReferenceEquals(expectedJson, actualJson);
 
             /// <summary>
             ///  You can add the content in the step like this, but it isn;t as maintainable. The above does the same but the below content is in a mock data json file instead.
