@@ -20,7 +20,6 @@ namespace WiremockTestProject.Steps
 
         public GetUsersStepDefinitions(Users users)
         {
-            Setup();
             this.users = users;
         }
 
@@ -131,11 +130,6 @@ namespace WiremockTestProject.Steps
             //  }";
             ////Assert.AreEqual(expectedBody, response.Content);
             //Assertions.ReferenceEquals(expectedBody,response.Content);
-        }
-
-        ~GetUsersStepDefinitions()
-        {
-            TearDown();
         }
     }
 }

@@ -1,14 +1,17 @@
 ﻿using WireMock.Server;
 using WireMock.Settings;
 using NUnit.Framework;
+using Reqnroll;
 
+[Binding]
 public class WiremockBaseTest
 {
     protected static WireMockServer server;
 
-    [OneTimeSetUp]
+    [BeforeScenario]
     public void Setup()
     {
+        if (server != null) return;
         server = WireMockServer.Start(new WireMockServerSettings
         {
             Urls = 
@@ -18,7 +21,7 @@ public class WiremockBaseTest
         });
     }
 
-    [OneTimeTearDown]
+    [AfterScenario]
     public void TearDown()
     {
         server.Stop();
